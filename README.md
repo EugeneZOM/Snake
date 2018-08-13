@@ -2,6 +2,8 @@
 
 Snake - first JS-Game created by me.
 
+![Preview](https://raw.githubusercontent.com/EugeneZOM/Snake/master/preview.jpg)
+
 Controls:  
 Arrows - move  
 Space - restart
