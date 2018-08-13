@@ -26,6 +26,7 @@
 			paddingTop			= 64,
 			passEdge			= false,
 			score				= 0,
+			record				= localStorage['record'] || 0,
 			gridSize			= 16,
 			direction			= 0,		// 0 - right, 1 - down, 2 - left, 3 - top
 			changedDirection	= false,
@@ -195,13 +196,19 @@
 			if(!gameOver) {
 				moveAudio.currentTime = 0;
 				moveAudio.play();
-			} else {
-				endAudio.play();
 			}
 
 			changedDirection = false;
 
 			passTime = 0;
+			if(gameOver) {
+				endAudio.play();
+
+				if(score > record) {
+					record = score;
+					localStorage['record'] = score;
+				}
+			}
 		}
 
 		function draw() {
@@ -280,8 +287,9 @@
 			}
 
 			ctx.fillStyle = colors.score;
-			ctx.font = '32px Arial';
-			ctx.fillText('Score: ' + score, 20, 50);
+			ctx.font = '16px Arial';
+			ctx.fillText('Score: ' + score, 20, 30);
+			ctx.fillText('Record: ' + record, 20, 50);
 
 			ctx.fillStyle = '#000';
 			ctx.font = '10px Arial';
