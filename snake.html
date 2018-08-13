@@ -36,12 +36,12 @@
 
 		ctx.imageSmoothingEnabled = false;
 
-		var eatAudio = new Audio('eat.wav');
-		var moveAudio = new Audio('move.wav');
-		var endAudio = new Audio('end.wav');
+		var eatAudio = new Audio('assets/eat.wav');
+		var moveAudio = new Audio('assets/move.wav');
+		var endAudio = new Audio('assets/end.wav');
 
 		var appleImg = new Image();
-			appleImg.src = 'apple.png';
+			appleImg.src = 'assets/apple.png';
 
 		var colors = {
 			bg: '#080',
@@ -209,10 +209,6 @@
 			ctx.fillStyle = colors.bg;
 			ctx.fillRect(0, paddingTop, c_width, c_height);
 
-			ctx.fillStyle = '#000';
-			ctx.font = '20px Arial';
-			ctx.fillText('© Copyright by Yevhen Zhyhun, 2018', c_width / 2 - ctx.measureText('© Copyright by Yevhen Zhyhun, 2018').width / 2, c_height / 2 - 16);
-
 			// Draw APPLES
 			ctx.fillStyle  = colors.apple;
 			apple.forEach(function(value) {
@@ -286,6 +282,10 @@
 			ctx.fillStyle = colors.score;
 			ctx.font = '32px Arial';
 			ctx.fillText('Score: ' + score, 20, 50);
+
+			ctx.fillStyle = '#000';
+			ctx.font = '10px Arial';
+			ctx.fillText('© Copyright by Yevhen Zhyhun, 2018', c_width / 2 - ctx.measureText('© Copyright by Yevhen Zhyhun, 2018').width / 2, 15);
 
 			// Draw EDGE
 			ctx.strokeStyle = colors.edge;
